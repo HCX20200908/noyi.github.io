@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>寻·梦</title>
+    <link
+      href="css/style-mobile.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen and (max-width: 640px)"
+    />
+    <link
+      href="css/style-pc.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen and (min-width: 640px)"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link rel="icon" type="image/x-icon" href="./images/雷元素1.webp" />
+  </head>
+
+  <body>
+    <audio
+      autoplay="autoplay"
+      loop="loop"
+      preload="auto"
+      controls="controls"
+      src="./bgm/Silent Love (From 'A Scene at the Sea') - 久石让.mp3"
+      id="music"
+    ></audio>
+    <!--这里是音乐-->
+    <section>
+      <div class="lb" id="a" onclick="a()" >
+        <a href="#"><i class="fa fa-paw"></i></a>
+      </div>  
+      <div class="b">梦之渊</div>
+      <a href="text-001.html" >
+        <img src="images/鲤006.png"/>
+      </a>
+      <span></span>
+
+    <script type="text/javascript">
+      function createBubble() {
+        const section = document.querySelector("section");
+        const createElement = document.createElement("span");
+        var size = Math.random() * 60;
+
+        createElement.style.width = size + "px";
+        createElement.style.height = size + "px";
+        createElement.style.left = Math.random() * innerWidth + "px";
+        section.appendChild(createElement);
+
+        setTimeout(() => {
+          createElement.remove();
+        }, 4000);
+      }
+
+      setInterval(createBubble, 50);
+
+      function a() {
+        var audio = document.getElementById("music");
+
+        if (audio.paused) {
+          audio.play(); //audio.play();// 播放
+        } else {
+          audio.pause(); // 暂停
+        }
+      }
+
+      //跳转
+      function 跳转() {
+        window.location.href = "text-001.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../images/深海008.webp);
+  background-size: 100% 100%;
+  /*background    : #111;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section h2 {
+  font-size: 10em;
+  color: #333;
+}
+
+section span {
+  position: absolute;
+  bottom: 50px;
+  background: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: animate 20s linear infinite;
+}
+
+section span:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.25) translate(-70%, -70%);
+  background: radial-gradient(#fff, transparent);
+  border-radius: 50%;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-3000%);
+    opacity: 0;
+  }
+}
+
+/*bgm*/
+audio {
+  display: none;
+}
+
+/*标题*/
+
+.b {
+  position: absolute;
+
+  font-size: 400%;
+  font-weight: 30%;
+  color: white;
+  text-shadow: 5px 5px 5px rgb(1, 210, 247);
+  pointer-events: none;
+  animation: font 4s linear 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes font {
+  0% {
+    opacity: 0;
+    scale: (0);
+  }
+
+  50% {
+    opacity: 1;
+    scale: (1);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px rgb(1, 210, 247), 0 0 15px rgb(1, 210, 247),
+      0 0 25px rgb(1, 210, 247), 0 0 50px rgb(1, 210, 247),
+      0 0 80px rgb(1, 210, 247), 0 0 120px rgb(1, 210, 247),
+      0 0 160px rgb(1, 210, 247), 0 0 200px rgb(1, 210, 247);
+  }
+
+  100% {
+    opacity: 0;
+    scale: (0);
+  }
+}
+
+/*bgm图标*/
+.lb {
+  position: absolute;
+  bottom: 93%;
+  left: 90%;
+  animation: breathe 5s linear 0s infinite normal;
+}
+.lb:active {
+  box-shadow: inset 0 5px 10px #004080, inset 0 -5px 10px #004080;
+}
+
+.lb a {
+  font-size: 150%;
+  color: #004080;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s linear;
+  position: relative;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*bgm图标呼吸动画*/
+@keyframes breathe {
+  0% {
+    box-shadow: 0px 13px 30px -10px #004080;
+    -webkit-transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    box-shadow: 0px 60px 30px -30px #004080;
+    -webkit-transform: rotate3d(-30, 0, -10, 2deg) translate3d(2px, -2px, 30px);
+    transform: rotate3d(-30, 0, -10, 2deg) translate3d(2px, -2px, 30px);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0px 13px 30px -10px #004080;
+    -webkit-transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+}
+
+/*跳转*/
+img {
+  width: 20%;
+  height: 20%;
+  position: relative;
+  top: 0px;
+  left: 55%;
+  animation-name: changeright1, changeright2;
+  animation-duration: 4.5s, 8s;
+  animation-timing-function: linear, linear;
+  animation-delay: 0s, 8s;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-play-state: running, running;
+  animation-fill-mode: forwards, none;
+  background-color: #b3e6ff;
+  border-radius: 50%;
+}
+@keyframes changeright1 {
+  0% {
+    opacity: 0;
+    scale: (0);
+  }
+  25% {
+    opacity: 0;
+    scale: (0);
+  }
+  88% {
+    opacity: 0;
+    scale: (0);
+  }
+  100% {
+    opacity: 0.4;
+    scale: (0.4);
+  }
+}
+/*自定义动画类----顺时针旋转（使用这个动画的时候才设置动画执行时间）*/
+@keyframes changeright2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(-180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg);
+  }
+}

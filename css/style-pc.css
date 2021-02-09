@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/*body{
+    background-image: url(../images/深海014.webp); 
+    background-size:100% 100%;
+}*/
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(../images/深海014.webp);
+  background-size: 100% 100%;
+  /*background: #111;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section span {
+  position: absolute;
+  bottom: 50px;
+  background: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: animate 4s linear infinite;
+}
+
+section span:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.25) translate(-70%, -70%);
+  background: radial-gradient(#fff, transparent);
+  border-radius: 50%;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1200%);
+    opacity: 0;
+  }
+}
+
+/*bgm*/
+audio {
+  display: none;
+}
+
+/*标题*/
+
+.b {
+  font-size: 800%;
+  font-weight: 500;
+  color: white;
+  text-shadow: 5px 5px 5p#002699;
+  pointer-events: none;
+  animation: font 4s linear 1;
+  animation-fill-mode: forwards;
+  position: absolute;
+}
+
+@keyframes font {
+  0% {
+    opacity: 0;
+    scale: (0);
+  }
+  50% {
+    opacity: 1;
+    scale: (1);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px#002699, 0 0 15px#002699, 0 0 25px#002699,
+      0 0 50px#002699, 0 0 80px#002699, 0 0 120px#002699, 0 0 160px#002699,
+      0 0 200px#002699;
+  }
+  100% {
+    opacity: 0;
+    scale: (0);
+  }
+}
+/*@keyframes font {
+  0% {
+    opacity: 0;
+    scale: (0);
+  }
+  50% {
+    opacity: 1;
+    scale: (1);
+  }
+  100% {
+    opacity: 0;
+    scale: (0);
+  }
+}*/
+
+/*图标*/
+.lb {
+  position: fixed;
+  bottom: 88%;
+  left: 92%;
+}
+
+.lb a {
+  font-size: 50px;
+  color: #00004d;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  margin: 0 16px;
+  display: inline-block;
+  transition: 0.5s linear;
+  position: relative;
+  text-align: center;
+}
+
+.lb a::before,
+.lb a::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: 0.5s linear;
+}
+
+.lb a:hover {
+  transform: scale(0.8);
+}
+
+.lb a:hover::before {
+  border-left: 4px solid;
+  border-right: 4px solid;
+  transform: skewX(20deg);
+}
+
+.lb a:hover::after {
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  transform: skewY(-20deg);
+}
+
+/*跳转*/
+img {
+  width: 80%;
+  height: 80%;
+  position: relative;
+  top: 80px;
+  left: 200%;
+  animation-name: changeright1, changeright2;
+  animation-duration: 4.5s, 8s;
+  animation-timing-function: linear, linear;
+  animation-delay: 0s, 8s;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, normal;
+  animation-play-state: running, running;
+  animation-fill-mode: forwards, none;
+}
+@keyframes changeright1 {
+  0% {
+    opacity: 0;
+    scale: (0);
+  }
+  25% {
+    opacity: 0;
+    scale: (0);
+  }
+  88% {
+    opacity: 0;
+    scale: (0);
+  }
+  100% {
+    opacity: 0.4;
+    scale: (0.4);
+  }
+}
+/*自定义动画类----顺时针旋转（使用这个动画的时候才设置动画执行时间）*/
+@keyframes changeright2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(-180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg);
+  }
+}
