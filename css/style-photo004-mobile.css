@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  touch-action: pan-y;
+}
+body {
+  background: #000;
+  overflow: hidden;
+}
+#perspective {
+  perspective: 800px;
+}
+#wrap {
+  width: 120px;
+  height: 180px;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg) rotateY(0deg);
+}
+#wrap img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 1px;
+  transform: rotateY(0deg) translateZ(0px);
+  /*倒影：朝向 偏移 遮盖*/ /*线性渐变(从哪里开始,开始时候的颜色,结束时候的颜色)*/
+  -webkit-box-reflect: below 5px -webkit-linear-gradient(top, rgba(0, 0, 0, 0)
+        40%, rgba(0, 0, 0, 0.5) 100%);
+}
+#wrap p {
+  width: 1200px;
+  height: 1200px;
+  background: -webkit-radial-gradient(
+    center center,
+    600px 600px,
+    rgba(244, 23, 234, 0.2),
+    rgba(0, 0, 0, 0)
+  );
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  top: 102%;
+  margin-left: -600px;
+  margin-top: -600px;
+  transform: rotateX(90deg);
+}
+
+/*发光标题*/
+
+.b {
+  font-size: 700%;
+  font-weight: 30%;
+  color: white;
+  text-shadow: 5px 5px 5p#002699;
+  pointer-events: none;
+  animation: font 4s linear 1;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  opacity: 0;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+}
+
+@keyframes font {
+  0% {
+    opacity: 0;
+    scale: (0);
+  }
+
+  50% {
+    opacity: 1;
+    scale: (1);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px rgb(1, 210, 247), 0 0 15px rgb(1, 210, 247),
+      0 0 25px rgb(1, 210, 247), 0 0 50px rgb(1, 210, 247),
+      0 0 80px rgb(1, 210, 247), 0 0 120px rgb(1, 210, 247),
+      0 0 160px rgb(1, 210, 247), 0 0 200px rgb(1, 210, 247);
+  }
+
+  90% {
+    transform: translate(0) scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0) scale(1.5);
+    opacity: 0;
+  }
+}
+
+audio {
+  display: none;
+}
+
+/*bgm图标*/
+.lb {
+  position: absolute;
+  top: 2%;
+  right: 3%;
+  animation: breathe 5s linear 0s infinite normal;
+}
+.lb:active {
+  box-shadow: inset 0 5px 10px #004080, inset 0 -5px 10px #4d194d;
+}
+
+.lb a {
+  font-size: 300%;
+  color: #4d194d;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s linear;
+  position: relative;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*bgm图标呼吸动画*/
+@keyframes breathe {
+  0% {
+    box-shadow: 0px 13px 30px -10px #004080;
+    -webkit-transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    box-shadow: 0px 60px 30px -30px #004080;
+    -webkit-transform: rotate3d(-30, 0, -10, 2deg) translate3d(2px, -2px, 30px);
+    transform: rotate3d(-30, 0, -10, 2deg) translate3d(2px, -2px, 30px);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0px 13px 30px -10px #004080;
+    -webkit-transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    transform: rotate3d(0, 0, 0, 5deg) translate3d(0, 0, 0);
+    opacity: 0.4;
+  }
+}
